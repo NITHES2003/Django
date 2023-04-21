@@ -2,9 +2,11 @@
 
 {% block body %}
     <h1><p style="color: indigo; font-family: 'Times New Roman';">ADD TASK</p></h1>
-        <form>
-            <input type="text" name="task">
+        <form action = "{% url 'tasks:add' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
             <input type = "submit">
         </form>
-
+        
+        <a href = "{% url 'tasks:index' %}">View Tasks</a>
 {% endblock %}
